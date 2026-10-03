@@ -52,10 +52,7 @@
     "resetIdDone": "Instance ID reset",
     "previewTitle": "Next report",
     "previewDescription": "This is exactly what would be sent right now.",
-    "close": "Close",
+    "close": "Zamknij",
     "loadFailed": "Could not load the usage statistics status"
-  },
-  "plugin": {
-    "name": "Usage Statistics"
   }
 }

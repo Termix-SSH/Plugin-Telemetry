@@ -31,7 +31,7 @@
     }
   },
   "status": {
-    "title": "Status",
+    "title": "Estado",
     "on": "Sharing usage statistics once a day",
     "off": "Not sharing usage statistics",
     "lockedOn": "Turned on by the ENABLE_TELEMETRY environment variable. Change it there.",
@@ -52,10 +52,7 @@
     "resetIdDone": "Instance ID reset",
     "previewTitle": "Next report",
     "previewDescription": "This is exactly what would be sent right now.",
-    "close": "Close",
+    "close": "Fechar",
     "loadFailed": "Could not load the usage statistics status"
-  },
-  "plugin": {
-    "name": "Usage Statistics"
   }
 }
