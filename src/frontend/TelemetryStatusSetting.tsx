@@ -5,16 +5,7 @@ import {
   useTranslation,
   type SettingsComponentProps,
 } from "@termix/plugin-sdk/frontend";
-import {
-  Button,
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogFooter,
-  DialogHeader,
-  DialogTitle,
-  useConfirmation,
-} from "@termix/plugin-sdk/ui";
+import { Button, useConfirm, InlineView } from "@termix/plugin-sdk/ui";
 
 export interface TelemetryStatus {
   enabled: boolean;
@@ -36,7 +27,7 @@ function errorMessage(error: unknown): string {
 export function TelemetryStatusSetting({ running }: SettingsComponentProps) {
   const { t } = useTranslation();
   const api = usePluginApi();
-  const { confirmWithToast } = useConfirmation();
+  const confirm = useConfirm();
   const [status, setStatus] = useState<TelemetryStatus | null>(null);
   const [sending, setSending] = useState(false);
   const [preview, setPreview] = useState<unknown>(null);
@@ -79,14 +70,21 @@ export function TelemetryStatusSetting({ running }: SettingsComponentProps) {
   }
 
   function resetId() {
-    void confirmWithToast(t("status.resetIdConfirm"), async () => {
-      try {
-        await api.post("/reset-id");
-        toast.success(t("status.resetIdDone"));
-        await load();
-      } catch (error) {
-        toast.error(errorMessage(error));
-      }
+    void confirm({
+      title: t("status.resetIdConfirm"),
+      confirmLabel: t("status.resetId"),
+    }).then((ok) => {
+      if (ok)
+        void (async () => {
+          try {
+            await api.post("/reset-id");
+            toast.success(t("status.resetIdDone"));
+            await load();
+          } catch (error) {
+            toast.error(errorMessage(error));
+          }
+        })();
+      return ok;
     });
   }
 
@@ -160,21 +158,13 @@ export function TelemetryStatusSetting({ running }: SettingsComponentProps) {
           {t("status.resetId")}
         </Button>
       </div>
-      <Dialog
+
+      <InlineView
         open={preview !== null}
         onOpenChange={(open) => !open && setPreview(null)}
-      >
-        <DialogContent className="rounded-none sm:max-w-2xl">
-          <DialogHeader>
-            <DialogTitle>{t("status.previewTitle")}</DialogTitle>
-            <DialogDescription>
-              {t("status.previewDescription")}
-            </DialogDescription>
-          </DialogHeader>
-          <pre className="max-h-[60vh] overflow-auto border border-border bg-muted/40 p-2 text-[11px]">
-            {JSON.stringify(preview, null, 2)}
-          </pre>
-          <DialogFooter>
+        title={t("status.previewTitle")}
+        footer={
+          <div className="ml-auto flex flex-wrap items-center justify-end gap-2">
             <Button
               type="button"
               variant="outline"
@@ -183,9 +173,16 @@ export function TelemetryStatusSetting({ running }: SettingsComponentProps) {
             >
               {t("status.close")}
             </Button>
-          </DialogFooter>
-        </DialogContent>
-      </Dialog>
+          </div>
+        }
+      >
+        <p className="text-xs text-muted-foreground">
+          {t("status.previewDescription")}
+        </p>
+        <pre className="max-h-[60vh] overflow-auto border border-border bg-muted/40 p-2 text-[11px]">
+          {JSON.stringify(preview, null, 2)}
+        </pre>
+      </InlineView>
     </div>
   );
 }
