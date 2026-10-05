@@ -1,5 +1,5 @@
 import type { Request, RequestHandler, Response, Router } from "express";
-import type { PluginContext } from "@termix/plugin-sdk/backend";
+import type { PluginContext } from "@termix-ssh/plugin-sdk/backend";
 import { isEnabled, readSettings } from "./collect.js";
 import type { Reporter } from "./reporter.js";
 import { sanitizeUsage, type UsageStore } from "./usage.js";

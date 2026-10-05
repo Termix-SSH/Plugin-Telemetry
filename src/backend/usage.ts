@@ -1,4 +1,4 @@
-import type { PluginKeyValue } from "@termix/plugin-sdk/backend";
+import type { PluginKeyValue } from "@termix-ssh/plugin-sdk/backend";
 
 const USAGE_KEY = "usage";
 const FEATURE_NAME = /^[a-z][a-z0-9_.-]{0,63}$/;

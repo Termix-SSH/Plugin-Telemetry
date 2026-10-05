@@ -1,5 +1,5 @@
 import { randomUUID } from "node:crypto";
-import type { PluginContext } from "@termix/plugin-sdk/backend";
+import type { PluginContext } from "@termix-ssh/plugin-sdk/backend";
 import { envOverride, posthogConfig } from "./config.js";
 import { buildPayload, isEnabled, readSettings } from "./collect.js";
 import type { UsageStore } from "./usage.js";

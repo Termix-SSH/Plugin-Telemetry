@@ -1,5 +1,5 @@
 import type { Router } from "express";
-import type { PluginContext } from "@termix/plugin-sdk/backend";
+import type { PluginContext } from "@termix-ssh/plugin-sdk/backend";
 import { envOverride } from "./config.js";
 import { isEnabled, readSettings } from "./collect.js";
 import { CHECK_INTERVAL_MS, createReporter } from "./reporter.js";

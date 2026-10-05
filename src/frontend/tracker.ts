@@ -1,4 +1,4 @@
-import type { TermixApp } from "@termix/plugin-sdk/frontend";
+import type { TermixApp } from "@termix-ssh/plugin-sdk/frontend";
 
 export const FLUSH_INTERVAL_MS = 5 * 60 * 1000;
 
