@@ -1,6 +1,6 @@
 import type { TermixApp } from "@termix-ssh/plugin-sdk/frontend";
 
-export const FLUSH_INTERVAL_MS = 5 * 60 * 1000;
+const FLUSH_INTERVAL_MS = 5 * 60 * 1000;
 
 type Counts = Record<string, number>;
 

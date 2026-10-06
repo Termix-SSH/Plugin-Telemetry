@@ -4,7 +4,7 @@ import { envOverride, posthogConfig } from "./config.js";
 import { buildPayload, isEnabled, readSettings } from "./collect.js";
 import type { UsageStore } from "./usage.js";
 
-export const REPORT_INTERVAL_MS = 24 * 60 * 60 * 1000;
+const REPORT_INTERVAL_MS = 24 * 60 * 60 * 1000;
 /** Checked hourly, so a restart never skips or doubles a day. */
 export const CHECK_INTERVAL_MS = 60 * 60 * 1000;
 

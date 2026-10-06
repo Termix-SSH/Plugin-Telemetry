@@ -5,7 +5,7 @@ import type { Reporter } from "./reporter.js";
 import { sanitizeUsage, type UsageStore } from "./usage.js";
 
 /** Whether the signed-in user's feature usage should be counted. */
-export async function shouldTrackUser(
+async function shouldTrackUser(
   ctx: PluginContext,
   userId: string | undefined,
   env?: Record<string, string | undefined>,

@@ -1,7 +1,7 @@
 /** Public project key. Only lets a client send events, never read them. */
 export const DEFAULT_POSTHOG_API_KEY =
   "phc_xM8UznirsFxUkGE68gH4jzeqevf4kh76wGw7Ci7hH2dd";
-export const DEFAULT_POSTHOG_HOST = "https://us.i.posthog.com";
+const DEFAULT_POSTHOG_HOST = "https://us.i.posthog.com";
 
 type Env = Record<string, string | undefined>;
 

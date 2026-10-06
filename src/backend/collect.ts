@@ -19,7 +19,7 @@ export interface TelemetrySettings {
   instanceId: string;
 }
 
-export interface TelemetryPayload {
+interface TelemetryPayload {
   event: "instance_heartbeat";
   distinct_id: string;
   properties: Record<string, unknown>;
@@ -49,7 +49,7 @@ export function isEnabled(settings: TelemetrySettings, env?: Env): boolean {
  * Made on first use rather than on activate, so the boot copy of a 2.8
  * instance id is never shadowed by a new one.
  */
-export async function ensureInstanceId(ctx: PluginContext): Promise<string> {
+async function ensureInstanceId(ctx: PluginContext): Promise<string> {
   const existing = await ctx.settings.get<string>("instanceId");
   if (existing) return existing;
   const id = randomUUID();
