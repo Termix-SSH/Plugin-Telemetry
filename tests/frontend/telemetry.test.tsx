@@ -4,7 +4,10 @@ import {
   renderWithApp,
   type RenderedPluginApp,
 } from "@termix-ssh/plugin-sdk/testing";
-import type { PluginApiClient, TermixApp } from "@termix-ssh/plugin-sdk/frontend";
+import type {
+  PluginApiClient,
+  TermixApp,
+} from "@termix-ssh/plugin-sdk/frontend";
 import type { PluginManifest } from "@termix-ssh/plugin-sdk/manifest";
 import * as plugin from "../../src/frontend/index";
 import {

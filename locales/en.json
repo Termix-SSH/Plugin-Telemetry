@@ -20,7 +20,7 @@
     },
     "includePlugins": {
       "label": "Include installed features",
-      "description": "Which built-in features are installed and running."
+      "description": "Which plugins are turned on and their versions. Used to count how many instances use each plugin."
     },
     "instanceId": {
       "label": "Instance ID"

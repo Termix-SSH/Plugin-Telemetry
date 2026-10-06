@@ -123,9 +123,12 @@ export async function buildPayload(
   if (settings.includePlugins) {
     const running = (await ctx.plugins.list())
       .filter((plugin) => plugin.state === "active")
-      .map((plugin) => plugin.id)
-      .sort();
-    properties.plugins_enabled = running;
+      .sort((a, b) => a.id.localeCompare(b.id));
+    properties.plugins_enabled = running.map((plugin) => plugin.id);
+    // The registry counts active installs and version adoption from this.
+    properties.plugin_versions = running.map(
+      (plugin) => `${plugin.id}@${plugin.version}`,
+    );
     properties.plugin_count = running.length;
   }
 

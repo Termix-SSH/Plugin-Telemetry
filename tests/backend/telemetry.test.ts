@@ -210,6 +210,7 @@ describe("reporting", () => {
       used_ssh_login: 1,
       used_host_connected: 1,
       plugins_enabled: ["docker", "telemetry"],
+      plugin_versions: ["docker@1.0.0", "telemetry@1.0.0"],
       plugin_count: 2,
     });
     expect(await usage.read()).toEqual({});
