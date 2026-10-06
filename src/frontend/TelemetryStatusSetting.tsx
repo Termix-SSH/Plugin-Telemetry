@@ -5,7 +5,12 @@ import {
   useTranslation,
   type SettingsComponentProps,
 } from "@termix-ssh/plugin-sdk/frontend";
-import { Button, useConfirm, InlineView } from "@termix-ssh/plugin-sdk/ui";
+import {
+  Button,
+  useConfirm,
+  InlineView,
+  FormFooter,
+} from "@termix-ssh/plugin-sdk/ui";
 
 export interface TelemetryStatus {
   enabled: boolean;
@@ -164,16 +169,10 @@ export function TelemetryStatusSetting({ running }: SettingsComponentProps) {
         onOpenChange={(open) => !open && setPreview(null)}
         title={t("status.previewTitle")}
         footer={
-          <div className="ml-auto flex flex-wrap items-center justify-end gap-2">
-            <Button
-              type="button"
-              variant="outline"
-              className="rounded-none"
-              onClick={() => setPreview(null)}
-            >
-              {t("status.close")}
-            </Button>
-          </div>
+          <FormFooter
+            onCancel={() => setPreview(null)}
+            cancelLabel={t("status.close")}
+          />
         }
       >
         <p className="text-xs text-muted-foreground">
