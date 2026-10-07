@@ -16,12 +16,6 @@ Usage Statistics sends a small anonymous report once a day so the Termix develop
 
 <br />
 
-## Install
-
-Usage Statistics ships with [Termix](https://github.com/Termix-SSH/Termix). Admins can turn it on or off, update it or install it again from the Plugins tab. Want to see it first? Try the [demo](https://demo.termix.site/), any username and password works.
-
-<br />
-
 ## Features
 
 - Never sends usernames, hostnames, IP addresses or credentials
