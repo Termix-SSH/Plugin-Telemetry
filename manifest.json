@@ -8,6 +8,7 @@
   },
   "license": "Apache-2.0",
   "repository": "https://github.com/Termix-SSH/Plugin-Telemetry",
+  "docs": "https://docs.termix.site/plugins/telemetry",
   "category": "Monitoring",
   "icon": "ChartNoAxesColumn",
   "features": [
@@ -15,9 +16,24 @@
     "Choose what the report includes, or turn it off",
     "Preview the exact report before it is sent"
   ],
+  "env": [
+    {
+      "name": "ENABLE_TELEMETRY",
+      "description": "true or false. Turns usage statistics on or off and locks the setting."
+    },
+    {
+      "name": "POSTHOG_API_KEY",
+      "description": "Send reports to your own PostHog project instead of the Termix one."
+    },
+    {
+      "name": "POSTHOG_HOST",
+      "description": "PostHog server to send to.",
+      "default": "https://us.i.posthog.com"
+    }
+  ],
   "engine": {
     "termix": ">=26.10.0",
-    "api": "1"
+    "api": "^1.2"
   },
   "capabilities": [
     "db:core-refs",

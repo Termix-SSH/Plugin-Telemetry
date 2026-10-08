@@ -14,6 +14,8 @@
 
 Usage Statistics sends a small anonymous report once a day so the Termix developers can see how many instances are running and which features get used.
 
+Read the [docs](https://docs.termix.site/plugins/telemetry) to set it up and use it.
+
 <br />
 
 ## Features

@@ -10,17 +10,6 @@ npm run validate   # check manifest.json
 npm run format     # format the code with Prettier
 ```
 
-## Settings
+## Docs
 
-### Admin
-
-- **Share anonymous usage statistics:** turn the daily report on or off
-- **Include platform info, Include feature usage and Include installed features:** choose what the report includes
-
-### User
-
-- **Include my feature usage:** count which kinds of tabs you open in the report
-
-## Permissions
-
-- `telemetry.manage`: see what is sent, send it now and reset the instance ID. Only admins have it by default.
+The docs for this plugin are in [docs/](docs/) and are published at https://docs.termix.site/plugins/telemetry. Settings, permissions, services, environment variables and the API reference are made from `manifest.json` and the `@openapi` comments in the code, so keep those up to date instead of writing them by hand. See [writing docs](https://docs.termix.site/develop/docs).
