@@ -20,7 +20,7 @@ Read the [docs](https://docs.termix.site/plugins/telemetry) to set it up and use
 
 ## Features
 
-- Never sends usernames, hostnames, IP addresses or credentials
+- Never sends usernames, hostnames or credentials
 - Choose what the report includes, or turn it off
 - Preview the exact report before it is sent
 
