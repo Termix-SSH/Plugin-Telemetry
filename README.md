@@ -6,6 +6,12 @@
 
 <p>Sends a small anonymous daily report so we can see how Termix is used</p>
 
+<!-- VIDEO:START -->
+
+<a href="https://www.youtube.com/watch?v=qbKqZ1bzpvQ"><img src="https://img.shields.io/badge/Watch_the_demo-f59145?style=for-the-badge&logo=youtube&logoColor=white" alt="Watch the demo on YouTube" /></a>
+
+<!-- VIDEO:END -->
+
 </div>
 
 <br />
