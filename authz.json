@@ -1,0 +1,27 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Termix-SSH/Termix/main/scripts/authz/authz.schema.json",
+  "seed": [],
+  "routes": {
+    "GET /plugin-api/telemetry/preview": {
+      "access": "user",
+      "permission": "telemetry.manage"
+    },
+    "POST /plugin-api/telemetry/reset-id": {
+      "access": "user",
+      "destructive": true
+    },
+    "POST /plugin-api/telemetry/send": {
+      "access": "user"
+    },
+    "GET /plugin-api/telemetry/status": {
+      "access": "user",
+      "permission": "telemetry.manage"
+    },
+    "POST /plugin-api/telemetry/usage": {
+      "access": "user"
+    },
+    "GET /plugin-api/telemetry/usage/config": {
+      "access": "user"
+    }
+  }
+}
