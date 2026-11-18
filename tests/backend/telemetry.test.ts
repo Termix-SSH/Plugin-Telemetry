@@ -60,6 +60,7 @@ async function setup(
   const sent: Sent[] = [];
   let router: Router | null = null;
   const mock: MockPluginContext = createMockCtx({
+    sandbox: true,
     pluginId: manifest.id,
     manifest,
     capabilities: manifest.capabilities,
@@ -140,12 +141,12 @@ describe("config", () => {
     ).toEqual({ apiKey: "k", host: "https://ph.local" });
   });
 
-  it("detects how Termix runs", () => {
-    expect(detectDeployment({ ELECTRON_EMBEDDED: "true" }, () => true)).toBe(
-      "desktop",
-    );
-    expect(detectDeployment({}, () => true)).toBe("docker");
-    expect(detectDeployment({}, () => false)).toBe("server");
+  it("reports where Termix says it runs", () => {
+    expect(detectDeployment({ TERMIX_DEPLOYMENT: "docker" })).toBe("docker");
+    expect(detectDeployment({ TERMIX_DEPLOYMENT: "desktop" })).toBe("desktop");
+    expect(detectDeployment({ TERMIX_DEPLOYMENT: "other" })).toBe("server");
+    expect(detectDeployment({ ELECTRON_EMBEDDED: "true" })).toBe("desktop");
+    expect(detectDeployment({})).toBe("server");
   });
 });
 
